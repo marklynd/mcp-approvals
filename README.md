@@ -1,5 +1,7 @@
 # mcp-approvals
 
+[![CI](https://github.com/marklynd/mcp-approvals/actions/workflows/ci.yml/badge.svg)](https://github.com/marklynd/mcp-approvals/actions/workflows/ci.yml) [![Container](https://github.com/marklynd/mcp-approvals/actions/workflows/publish-container.yml/badge.svg)](https://github.com/marklynd/mcp-approvals/actions/workflows/publish-container.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
+
 An MCP server that puts a human decision in front of a consequential agent
 action, and makes the decision - or the absence of one - permanently
 reconstructable.
@@ -381,3 +383,16 @@ with ApprovalStore("approvals.db") as store:
 ## Licence
 
 MIT. Copyright (c) 2026 Mark Lynd.
+
+---
+
+## Run it as a container
+
+A multi-stage image is published to the GitHub Container Registry on every push to `main`.
+
+```bash
+docker pull ghcr.io/marklynd/mcp-approvals:latest
+docker run --rm -i ghcr.io/marklynd/mcp-approvals:latest
+```
+
+The server speaks MCP over stdio, so `-i` is required and `-t` must be omitted. To wire it into Claude Desktop, point the command at `docker` with `["run","--rm","-i","ghcr.io/marklynd/mcp-approvals:latest"]` as the args.
