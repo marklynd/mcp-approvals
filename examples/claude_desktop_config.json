@@ -1,0 +1,24 @@
+{
+  "//": "Add this to claude_desktop_config.json. macOS: ~/Library/Application Support/Claude/claude_desktop_config.json  Windows: %APPDATA%\\Claude\\claude_desktop_config.json  Restart Claude Desktop afterwards.",
+  "//1": "MCP_APPROVALS_DB is optional. The default is $XDG_DATA_HOME/mcp-approvals/approvals.db, or ~/.local/share/mcp-approvals/approvals.db.",
+  "//2": "MCP_APPROVALS_ALLOW_SELF_APPROVAL defaults to false and should stay false unless one person is both the agent operator and the approver.",
+  "//3": "MCP_APPROVALS_DEFAULT_TTL_HOURS overrides the per-risk defaults (low 168, medium 72, high 24, critical 8).",
+  "//4": "approvals-dev shows how to run from a clone without installing. Replace ABSOLUTE_PATH_TO_REPO.",
+  "mcpServers": {
+    "approvals": {
+      "command": "mcp-approvals",
+      "env": {
+        "MCP_APPROVALS_DB": "/Users/YOU/.local/share/mcp-approvals/approvals.db",
+        "MCP_APPROVALS_ALLOW_SELF_APPROVAL": "false"
+      }
+    },
+    "approvals-dev": {
+      "command": "python3",
+      "args": ["-m", "mcp_approvals"],
+      "env": {
+        "PYTHONPATH": "ABSOLUTE_PATH_TO_REPO/mcp-approvals/src",
+        "MCP_APPROVALS_DB": "/tmp/mcp-approvals-dev.db"
+      }
+    }
+  }
+}
