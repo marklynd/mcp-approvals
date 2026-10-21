@@ -1,0 +1,119 @@
+
+=== crm_data_contract (synthetic data only) ===
+{
+  "campaigns": [
+    "webinar",
+    "newsletter",
+    "event"
+  ],
+  "candidate_fields": [
+    "record_id",
+    "campaign",
+    "stage",
+    "days_since_activity",
+    "review_reason"
+  ],
+  "candidate_order": "days_since_activity descending, then record_id ascending",
+  "candidate_rule": "Opted in, not do-not-contact, mql/sql/opportunity, idle at least min_idle_days.",
+  "dataset_id": "synthetic-crm-v1",
+  "excluded_fields": [
+    "internal_note",
+    "opted_in",
+    "do_not_contact"
+  ],
+  "limitations": [
+    "Newly authored synthetic-data demonstration, not a live CRM integration.",
+    "Current-stage counts are not historical conversion rates or marketing results.",
+    "Eligibility flags are invented screening inputs, not legal consent verification.",
+    "Review candidates are not permission to contact anyone.",
+    "No authentication, tenant isolation, durable audit, approval gate, or writes."
+  ],
+  "limits": {
+    "max_candidates": 20,
+    "min_idle_days_range": [
+      1,
+      90
+    ]
+  },
+  "read_only": true,
+  "record_count": 12,
+  "snapshot_date": "2026-10-15",
+  "stages": [
+    "lead",
+    "mql",
+    "sql",
+    "opportunity",
+    "customer",
+    "lost"
+  ],
+  "synthetic": true
+}
+
+=== crm_funnel_summary (synthetic data only) ===
+{
+  "campaign": "all",
+  "current_stage_counts": {
+    "customer": 1,
+    "lead": 2,
+    "lost": 1,
+    "mql": 3,
+    "opportunity": 2,
+    "sql": 3
+  },
+  "dataset_id": "synthetic-crm-v1",
+  "interpretation": "Snapshot stage inventory including screened-out records; not conversion rates or ROI.",
+  "read_only": true,
+  "screened_out_records": 2,
+  "snapshot_date": "2026-10-15",
+  "synthetic": true,
+  "total_records": 12
+}
+
+=== crm_review_candidates (synthetic data only) ===
+{
+  "candidates": [
+    {
+      "campaign": "event",
+      "days_since_activity": 25,
+      "record_id": "SYN-010",
+      "review_reason": "Review stale qualified record; verify context and permission before any outreach.",
+      "stage": "opportunity"
+    },
+    {
+      "campaign": "webinar",
+      "days_since_activity": 21,
+      "record_id": "SYN-003",
+      "review_reason": "Review stale qualified record; verify context and permission before any outreach.",
+      "stage": "sql"
+    },
+    {
+      "campaign": "webinar",
+      "days_since_activity": 16,
+      "record_id": "SYN-002",
+      "review_reason": "Review stale qualified record; verify context and permission before any outreach.",
+      "stage": "mql"
+    },
+    {
+      "campaign": "newsletter",
+      "days_since_activity": 14,
+      "record_id": "SYN-005",
+      "review_reason": "Review stale qualified record; verify context and permission before any outreach.",
+      "stage": "mql"
+    }
+  ],
+  "dataset_id": "synthetic-crm-v1",
+  "filters": {
+    "campaign": "all",
+    "limit": 5,
+    "min_idle_days": 14
+  },
+  "matched_count": 4,
+  "next_step": "Human review only. This server cannot draft, send, update records, or grant approval.",
+  "outreach_authorized": false,
+  "read_only": true,
+  "requires_human_review": true,
+  "returned_count": 4,
+  "snapshot_date": "2026-10-15",
+  "synthetic": true,
+  "truncated": false
+}
