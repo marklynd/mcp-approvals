@@ -1,0 +1,3 @@
+# Official MCP Python SDK, pinned to the version used for this demonstration.
+# The approvals project remains on its existing dependency range.
+mcp==1.29.0

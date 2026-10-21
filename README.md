@@ -336,6 +336,16 @@ only as trustworthy as it is.
 
 ---
 
+## Read-only CRM demonstration
+
+A separately runnable [synthetic CRM MCP example](examples/crm_readonly_mcp/README.md)
+shows bounded funnel-stage summaries and human-review candidates using invented
+records only. It includes real stdio transport tests and reproducible output.
+It is not a live CRM integration and does not invoke or enforce the approval
+gate. The approvals core is unchanged.
+
+---
+
 ## Development
 
 ```bash

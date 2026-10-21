@@ -1,0 +1,77 @@
+{
+  "funnel": {
+    "campaign": "all",
+    "current_stage_counts": {
+      "customer": 1,
+      "lead": 2,
+      "lost": 1,
+      "mql": 3,
+      "opportunity": 2,
+      "sql": 3
+    },
+    "dataset_id": "synthetic-crm-v1",
+    "interpretation": "Snapshot stage inventory including screened-out records; not conversion rates or ROI.",
+    "read_only": true,
+    "screened_out_records": 2,
+    "snapshot_date": "2026-10-15",
+    "synthetic": true,
+    "total_records": 12
+  },
+  "negative_calls_rejected": 10,
+  "protocol_version": "2025-11-25",
+  "review_candidates": {
+    "candidates": [
+      {
+        "campaign": "event",
+        "days_since_activity": 25,
+        "record_id": "SYN-010",
+        "review_reason": "Review stale qualified record; verify context and permission before any outreach.",
+        "stage": "opportunity"
+      },
+      {
+        "campaign": "webinar",
+        "days_since_activity": 21,
+        "record_id": "SYN-003",
+        "review_reason": "Review stale qualified record; verify context and permission before any outreach.",
+        "stage": "sql"
+      },
+      {
+        "campaign": "webinar",
+        "days_since_activity": 16,
+        "record_id": "SYN-002",
+        "review_reason": "Review stale qualified record; verify context and permission before any outreach.",
+        "stage": "mql"
+      },
+      {
+        "campaign": "newsletter",
+        "days_since_activity": 14,
+        "record_id": "SYN-005",
+        "review_reason": "Review stale qualified record; verify context and permission before any outreach.",
+        "stage": "mql"
+      }
+    ],
+    "dataset_id": "synthetic-crm-v1",
+    "filters": {
+      "campaign": "all",
+      "limit": 5,
+      "min_idle_days": 14
+    },
+    "matched_count": 4,
+    "next_step": "Human review only. This server cannot draft, send, update records, or grant approval.",
+    "outreach_authorized": false,
+    "read_only": true,
+    "requires_human_review": true,
+    "returned_count": 4,
+    "snapshot_date": "2026-10-15",
+    "synthetic": true,
+    "truncated": false
+  },
+  "status": "PASS",
+  "successful_tool_calls": 4,
+  "tools_discovered": [
+    "crm_data_contract",
+    "crm_funnel_summary",
+    "crm_review_candidates"
+  ],
+  "transport": "MCP stdio (actual SDK client and server process)"
+}
